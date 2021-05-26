@@ -1,0 +1,15 @@
+
+@media screen and (max-width: 480px){
+    .modal-footer{
+        justify-content: center;
+    }
+}
+
+.tooltip {
+    z-index: 1073;
+}
+
+.modal-header{
+   background: $primary-color;
+   color: white;
+}

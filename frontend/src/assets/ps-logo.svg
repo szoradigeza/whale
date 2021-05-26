@@ -1,0 +1,19 @@
+<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+ <!-- Created with Method Draw - http://github.com/duopixel/Method-Draw/ -->
+ <g transform="scale(0.5 0.5) ">
+  <title>Layer 1</title>
+  <line stroke="#f3843e" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_5" y2="2.43595" x2="48.05518" y1="51.99989" x1="2" stroke-width="4" fill="none"/>
+  <line stroke="#f3843e" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_6" y2="2.43595" x2="48.05518" y1="51.99989" x1="2" stroke-width="4" fill="none"/>
+  <line stroke="#f3843e" stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_7" y2="2.43595" x2="48.05518" y1="51.99989" x1="2" stroke-width="4" fill="none"/>
+  <line stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_9" y2="49.55284" x2="92.53521" y1="4.63157" x1="47.61394" fill-opacity="null" stroke-opacity="null" stroke-width="4" stroke="#f3843e" fill="none"/>
+  <line stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_11" y2="53.54198" x2="108.80503" y1="2" x1="57.26305" fill-opacity="null" stroke-opacity="null" stroke-width="4" stroke="#f3843e" fill="none"/>
+  <line stroke-linecap="undefined" stroke-linejoin="undefined" id="svg_14" y2="55.29636" x2="123.71728" y1="3.75438" x1="72.17529" fill-opacity="null" stroke-opacity="null" stroke-width="4" stroke="#f3843e" fill="none"/>
+  <rect stroke="#f3843e" id="svg_18" height="6" width="6" y="28.70068" x="39.31076" stroke-width="4" fill="#f3843e"/>
+  <rect stroke="#f3843e" id="svg_19" height="6" width="6" y="28.75294" x="50.07583" stroke-width="4" fill="#f3843e"/>
+  <rect stroke="#f3843e" id="svg_20" height="6" width="6" y="39.33258" x="39.2841" stroke-width="4" fill="#f3843e"/>
+  <rect stroke="#f3843e" id="svg_21" height="6" width="6" y="39.32918" x="50.06432" stroke-width="4" fill="#f3843e"/>
+  <line stroke-linecap="null" stroke-linejoin="null" id="svg_23" y2="98.8327" x2="11.18913" y1="47.28459" x1="11.18913" stroke-width="4" stroke="#ffffff" fill="none"/>
+  <line stroke="#f3843e" stroke-linecap="null" stroke-linejoin="null" id="svg_31" y2="100.07024" x2="357.46657" y1="100.07024" x1="8.61595" stroke-width="4" fill="none"/>
+  <text stroke="#f3843e" transform="matrix(1.6548525094985962,0,0,1.173842191696167,-22.131968406960368,-10.142605371773243) " xml:space="preserve" text-anchor="start" font-family="'Courier New', Courier, monospace" font-size="35" id="svg_34" y="81.90224" x="78.30216" stroke-opacity="null" stroke-width="0" fill="#ffffff">PS tool</text>
+</g>
+</svg>
