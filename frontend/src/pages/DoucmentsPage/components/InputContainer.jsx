@@ -1,51 +1,57 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from '../../../components/MainCard/MainCard';
 import { Col, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import DocumentInput from './DocumentInput';
 import ActiveDataChange from './ActiveDataChange';
 import useToggle from '../../../hooks/useToggle';
+import { connect, useDispatch, useSelector } from 'react-redux';
+import { documentConstants } from '../../../redux/constants';
+import { changeInput, resetInput } from '../../../redux/actions';
 
 function InputContainer() {
-   const { register, handleSubmit, formState } = useForm();
-   const onSubmit = (data) => console.log(data);
-   const [isPersonalDataActive, toggleIsPersonalDataActive] = useToggle(false);
-   const [isBankCardActive, toggleIsBankCardActive] = useToggle(false);
-   const [isSzepCardActive, toggleIsSzepCardActive] = useToggle(false);
-
-   React.useEffect(() => {
-      console.log('touched', formState.touchedFields);
-   }, [formState]);
-
-   const handleOnChangePersonalDataCheckbox = () => {
-      toggleIsPersonalDataActive();
+   const dispatch = useDispatch();
+   const documentState = useSelector((state) => state.documentReducer);
+   const { register, handleSubmit } = useForm({});
+   const onSubmit = (data) => {
+      dispatch(changeInput('test'));
+      console.log(data);
    };
-   const handleOnChangeBankCardCheckbox = () => {
-      toggleIsPersonalDataActive();
-   };
-   const handleOnChangeSzepCardCheckbox = () => {
-      toggleIsPersonalDataActive();
+
+   const formOnChangeHandler = (e) => {
+      console.log(e.target.checked);
+      const { name, value, checked } = e.target;
+      e.target.type == 'checkbox'
+         ? dispatch(changeInput({ name, value: checked }))
+         : dispatch(changeInput({ name, value }));
    };
 
    return (
       <Col xs={4}>
          <Card title="Személyes adatok">
-            <Form onSubmit={handleSubmit(onSubmit)}>
+            <Form
+               onSubmit={handleSubmit(onSubmit)}
+               onChange={formOnChangeHandler}
+            >
                <Form.Group controlId="documentForm.name">
                   <Form.Label>Születési név:</Form.Label>
                   <Form.Control
                      size="sm"
-                     placeholder="Születési név:"
-                     defaultValue="Születési név"
+                     placeholder="Születési név"
                      {...register('name')}
+                  />
+                  <Form.Label>Törzsszám:</Form.Label>
+                  <Form.Control
+                     size="sm"
+                     placeholder="Törzsszám"
+                     {...register('regNumber')}
                   />
                </Form.Group>
                <Form.Group controlId="documentForm.birtPlace">
                   <Form.Label>Születési hely:</Form.Label>
                   <Form.Control
                      size="sm"
-                     placeholder="Születési hely:"
-                     defaultValue="Születési hely"
+                     placeholder="Születési hely"
                      {...register('birtPlace')}
                   />
                </Form.Group>
@@ -54,7 +60,6 @@ function InputContainer() {
                   <Form.Control
                      size="sm"
                      type="date"
-                     placeholder="Születési idő:"
                      {...register('birthDate')}
                   />
                </Form.Group>
@@ -62,22 +67,23 @@ function InputContainer() {
                   <Form.Label>Változtatni kivánt adat:</Form.Label>
                   <Form.Check
                      label="Név/Lakcím változás"
+                     name="personalDataChange"
                      {...register('personalDataChange')}
-                     onChange={handleOnChangePersonalDataCheckbox}
                   />
                   <Form.Check
                      label="Bankszámlaváltozás"
                      {...register('bankCardChange')}
+                     value={true}
                      name="bankCardChange"
-                     onChange={handleOnChangeBankCardCheckbox}
                   />
                   <Form.Check
                      label="SZÉP kártya bankszámlaszám változás"
                      {...register('szepCardChange')}
+                     value={true}
                      name="szepCardChange"
-                     onChange={handleOnChangeSzepCardCheckbox}
                   />
                </Form.Group>
+
                {/*<Form.Group controlId="exampleForm.ControlSelect2">
                   <Form.Label>Example multiple select</Form.Label>
                   <Form.Control as="select" multiple>
@@ -93,7 +99,7 @@ function InputContainer() {
                   <Form.Control as="textarea" rows={3} />
                </Form.Group>
                   <ActiveDataChange /> */}
-               <ActiveDataChange isPersonalDataActive={isPersonalDataActive} />
+               <ActiveDataChange />
                <input type="submit" />
             </Form>
          </Card>

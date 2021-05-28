@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card, Col } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 import logo from '../../../assets/images/continental-logo.svg';
 
 function DocumentPreview({ documentHtml }) {
+   const documentState = useSelector((state) => state.documentReducer);
+   const [bDate, setbDate] = useState('');
+
+   useEffect(() => {
+      documentState.birthDate && setbDate(getDate());
+   }, [documentState.birthDate]);
+
+   const getDate = () => {
+      const [year, month, day] = documentState.birthDate.toString().split('-');
+      return { day, month, year };
+   };
    return (
       <Col xs={8}>
          <Card>
@@ -13,35 +25,75 @@ function DocumentPreview({ documentHtml }) {
                Nyilatkozat <br></br> Személyi adatokban bekövetkezett
                változásról
             </DocumentTitle>
-            <StyledSpan>Alulirott nev........... torzsszam....</StyledSpan>
             <StyledSpan>
-               .....................születési hely, ...év, ...hó, ...nap
+               Alulírott <b>{documentState.name}</b> törzsszam{' '}
+               <b>{documentState.regNumber}</b>
+            </StyledSpan>
+            <StyledSpan>
+               <b>{documentState.birtPlace}</b>, {bDate.year} év, {bDate.month}{' '}
+               hó,
+               {bDate.day} nap
             </StyledSpan>
             <br></br>
-            <BoldUnderLineSpan>Név/Lakcím változás</BoldUnderLineSpan>
-            <StyledSpan>Névváltozás estén az új név:</StyledSpan>
-            <StyledSpan>Állandó lakcím/lakóhely:</StyledSpan>
-            <StyledSpan>Ideiglenes lakcím/tartózkodási hely:</StyledSpan>
-            <StyledSpan>
-               (Munkába járás költségtérítés igénybe vétele esetén kérjük a
-               CAP1013534 számú szabályzat szerint nyilatkozatot leadni)
-            </StyledSpan>
-            <StyledSpan>Iskolai illetve szakmai végzettség:</StyledSpan>
-            <br></br>
-            <BoldUnderLineSpan>Bankszámlaváltozás:</BoldUnderLineSpan>
-            <StyledSpan>
-               Kijelentem hogy -hótol a munkabér átutalását az alábbi
-               bankszámlaszámra kérem.
-            </StyledSpan>
-            <StyledSpan>Bank neve: </StyledSpan>
-            <StyledSpan>Számlaszám: </StyledSpan>
-            <br></br>
-            <BoldUnderLineSpan>
-               OTP SZÉP kártya bankszámlaszám:
-            </BoldUnderLineSpan>
-            <StyledSpan>Vendéglátás számlaszám:</StyledSpan>
-            <StyledSpan>Szállás számlaszám: </StyledSpan>
-            <StyledSpan>Szabadidő számlaszám: </StyledSpan>
+            {documentState.personalDataChange && (
+               <>
+                  <BoldUnderLineSpan>Név/Lakcím változás</BoldUnderLineSpan>
+                  <StyledSpan>
+                     Névváltozás estén az új név: <b>{documentState.newName}</b>
+                  </StyledSpan>
+                  <StyledSpan>
+                     Állandó lakcím/lakóhely: <b>{documentState.newAddress}</b>
+                  </StyledSpan>
+                  <StyledSpan>
+                     Ideiglenes lakcím/tartózkodási hely:
+                     <b>{documentState.newTemporaryAddress}</b>
+                  </StyledSpan>
+                  <StyledSpan>
+                     (Munkába járás költségtérítés igénybe vétele esetén kérjük
+                     a CAP1013534 számú szabályzat szerint nyilatkozatot leadni)
+                  </StyledSpan>
+                  <StyledSpan>
+                     Iskolai illetve szakmai végzettség:
+                     <b>{documentState.newSchool}</b>
+                  </StyledSpan>
+               </>
+            )}
+            {documentState.bankCardChange && (
+               <>
+                  <br></br>
+                  <BoldUnderLineSpan>Bankszámlaváltozás</BoldUnderLineSpan>
+                  <StyledSpan>
+                     Kijelentem hogy -hótol a munkabér átutalását az alábbi
+                     bankszámlaszámra kérem.
+                  </StyledSpan>
+                  <StyledSpan>
+                     Bank neve: <b>{documentState.bankName}</b>
+                  </StyledSpan>
+                  <StyledSpan>
+                     Számlaszám: <b>{documentState.newBankCardNumber}</b>
+                  </StyledSpan>
+               </>
+            )}
+            {documentState.szepCardChange && (
+               <>
+                  <br></br>
+                  <BoldUnderLineSpan>
+                     OTP SZÉP kártya bankszámlaszám változás
+                  </BoldUnderLineSpan>
+                  <StyledSpan>
+                     Vendéglátás számlaszám:{' '}
+                     <b>{documentState.newHospitalityNumber}</b>
+                  </StyledSpan>
+                  <StyledSpan>
+                     Szállás számlaszám:{' '}
+                     <b>{documentState.newAccomodationNumber}</b>
+                  </StyledSpan>
+                  <StyledSpan>
+                     Szabadidő számlaszám:{' '}
+                     <b>{documentState.newLeisureTimeNumber}</b>
+                  </StyledSpan>
+               </>
+            )}
             <br></br>
             <BoldSpan>
                Munka és büntetőjogi felelőségem tudatában kijelentem, hogy a
