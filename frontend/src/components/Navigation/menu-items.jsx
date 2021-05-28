@@ -1,66 +1,98 @@
 export default {
-  items: [
-    {
-      id: "navigation",
-      title: "Navigation",
-      type: "group",
-      icon: "icon-navigation",
-      children: [
-        {
-          id: "home",
-          title: "Home",
-          type: "item",
-          url: "/home",
-          icon: "feather icon-home",
-        },
-        {
-          id: "calendar",
-          title: "Calendar",
-          type: "item",
-          url: "/calendar",
-          icon: "feather icon-calendar",
-        }
-      ],
-    },
-    {
-      id: "ui-element",
-      type: "group",
-      icon: "icon-ui",
-      children: [
-        {
-          id: "asd1",
-          title: "Documents",
-          type: "collapse",
-          icon: "feather icon-box",
-          children: [
+   items: [
+      {
+         id: 'navigation',
+         title: 'Navigation',
+         type: 'group',
+         icon: 'icon-navigation',
+         children: [
             {
-              id: "Doc1",
-              title: "Doc1",
-              type: "item",
-              url: "/documents/personal-data-change",
+               id: 'home',
+               title: 'Kezdőlap',
+               type: 'item',
+               url: '/home',
+               icon: 'feather icon-home',
             },
             {
-              id: "Doc2",
-              title: "Doc2",
-              type: "item",
-              url: "/basic/badges",
+               id: 'calendar',
+               title: 'Naptár',
+               type: 'item',
+               url: '/calendar',
+               icon: 'feather icon-calendar',
+            },
+         ],
+      },
+      {
+         id: 'ui-element',
+         type: 'group',
+         icon: 'icon-ui',
+         children: [
+            {
+               id: 'asd1',
+               title: 'HR',
+               type: 'collapse',
+               icon: 'feather icon-user',
+               children: [
+                  {
+                     id: 'Doc1',
+                     title: 'Személyes adatok változása',
+                     type: 'item',
+                     url: '/documents/personal-data-change',
+                  },
+                  {
+                     id: 'Doc2',
+                     title: 'Doc2',
+                     type: 'item',
+                     url: '/basic/badges',
+                  },
+                  {
+                     id: 'Doc3',
+                     title: 'Doc3',
+                     type: 'item',
+                     url: '/basic/breadcrumb-paging',
+                  },
+                  {
+                     id: 'Doc4',
+                     title: 'Doc4',
+                     type: 'item',
+                     url: '/basic/collapse',
+                  },
+               ],
             },
             {
-              id: "Doc3",
-              title: "Doc3",
-              type: "item",
-              url: "/basic/breadcrumb-paging",
+               id: 'control',
+               title: 'Controlling',
+               type: 'collapse',
+               icon: 'feather icon-user',
+               children: [
+                  {
+                     id: 'Doc1',
+                     title: 'Doc1',
+                     type: 'item',
+                     url: '/basic/badges',
+                  },
+                  {
+                     id: 'Doc2',
+                     title: 'Doc2',
+                     type: 'item',
+                     url: '/basic/badges',
+                  },
+                  {
+                     id: 'Doc3',
+                     title: 'Doc3',
+                     type: 'item',
+                     url: '/basic/breadcrumb-paging',
+                  },
+                  {
+                     id: 'Doc4',
+                     title: 'Doc4',
+                     type: 'item',
+                     url: '/basic/collapse',
+                  },
+               ],
             },
-            {
-              id: "Doc4",
-              title: "Doc4",
-              type: "item",
-              url: "/basic/collapse",
-            },
-          ],
-        },
-      ],
-    } /*
+         ],
+      } /*
        {
            id: 'ui-forms',
            title: 'Forms & Tables',
@@ -210,7 +242,7 @@ export default {
                    classes: 'nav-item disabled',
                    icon: 'feather icon-power'
                },*/,
-    /*{
+      /*{
                    id: 'buy-now',
                    title: 'Buy Now',
                    type: 'item',
@@ -226,5 +258,5 @@ export default {
                }
            ]
        }*/
-  ],
+   ],
 };

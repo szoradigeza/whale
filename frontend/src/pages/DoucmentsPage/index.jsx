@@ -15,7 +15,7 @@ export default function DocumentPage() {
    }, []);
    return (
       <>
-         <Row>12
+         <Row>
             <InputContainer />
             <DocumentPreview documentHtml="random" />
          </Row>

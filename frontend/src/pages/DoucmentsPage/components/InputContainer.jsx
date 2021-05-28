@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../../../components/MainCard/MainCard';
-import { Col, Form } from 'react-bootstrap';
+import { Button, Col, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import DocumentInput from './DocumentInput';
 import ActiveDataChange from './ActiveDataChange';
@@ -100,7 +100,7 @@ function InputContainer() {
                </Form.Group>
                   <ActiveDataChange /> */}
                <ActiveDataChange />
-               <input type="submit" />
+               <Button type="submit">Küldés</Button>
             </Form>
          </Card>
       </Col>

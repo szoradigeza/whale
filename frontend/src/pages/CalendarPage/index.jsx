@@ -13,8 +13,8 @@ class CalendarPage extends React.Component {
       return (
          <Aux>
             <Col>
-               <Card title="test bandage">
-                  <h1>Test bandage</h1>
+               <Card title="Naptár">
+                  <h1>Lorem ipsum</h1>
                   <Can rqAbility="change_datee">
                      <Button>Test-button</Button>
                   </Can>
